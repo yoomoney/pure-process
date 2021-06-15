@@ -5,7 +5,7 @@ Primitives for business logic structuring.
 #### Install
 
 ```
-npm install pure-process
+npm install @yoomoney/pure-process
 ```
 
 #### Promise chain exits
@@ -14,7 +14,7 @@ npm install pure-process
 <summary>JavaScript</summary>
 
 ```javascript
-const {exit} = require('pure-process');
+const {exit} = require('@yoomoney/pure-process');
 
 const EXIT_CODE = {
     needLogin: 'needLogin'
@@ -53,7 +53,7 @@ if (output.exitCode === EXIT_CODE.needLogin) {
 <summary>TypeScript</summary>
 
 ```typescript
-const {createExit} = require('pure-process');
+const {createExit} = require('@yoomoney/pure-process');
 
 enum ExitCode {
     NeedLogin = 'NEED_LOGIN',
@@ -99,7 +99,7 @@ if (output.exitCode === ExitCode.NeedLogin) {
 #### Sequential and parallel execution
 
 ```javascript
-const {pipeP, parallelMerge} = require('pure-process');
+const {pipeP, parallelMerge} = require('@yoomoney/pure-process');
 
 const stepA = () => ({
     resultA: 1
@@ -154,7 +154,7 @@ const process = pipeP(
 #### Skip errors
 
 ```javascript
-const {skipErrors} = require('pure-process');
+const {skipErrors} = require('@yoomoney/pure-process');
 
 const stepA = async(data) => ({
     ...data,
