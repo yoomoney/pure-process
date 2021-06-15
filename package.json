@@ -25,7 +25,9 @@
     "node": ">=10.16.3"
   },
   "keywords": [
-    "functional programming",
-    "processes"
+    "typescript",
+    "functional-programming",
+    "async",
+    "chain-of-responsibility"
   ]
 }
