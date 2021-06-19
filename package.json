@@ -8,12 +8,13 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha",
+    "test": "nyc mocha",
     "test:types": "tsd",
-    "prepack": "eslint . && nyc mocha && tsd"
+    "prepack": "npm run lint && npm run test && npm run test:types"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",
+    "codecov": "^3.8.2",
     "eslint": "^7.28.0",
     "eslint-plugin-node": "^11.1.0",
     "expect": "^27.0.2",

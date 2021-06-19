@@ -1,7 +1,8 @@
 language: node_js
 node_js: node
-before_install:
-  - npm install -g codecov
 script:
-  - npm run lint && npm run test && npm run test:types
-  - nyc --reporter=lcov mocha && codecov
+  - npm run lint
+  - npm run test
+  - npm run test:types
+  - nyc report --reporter=lcov
+  - codecov
