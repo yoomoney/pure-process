@@ -145,6 +145,8 @@ expect(await process()).toEqual({
 });
 ```
 
+`this` argument of the created function is propagated to argument functions.
+
 #### Sequences with exits
 
 ```javascript
