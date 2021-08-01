@@ -42,6 +42,7 @@ if (output.exitCode === 'ok') {
 }
 
 // pipeP
+expectType<number>(await pipeP(() => 1)());
 expectType<number>(await pipeP((a: number) => 1)(2));
 expectType<number>(await pipeP((a: number) => Promise.resolve(1))(2));
 expectType<(a: number) => Promise<number>>(await pipeP((a: number) => 1));
@@ -90,6 +91,8 @@ expectError(await pipeP(
 )(2));
 
 // parallelMerge
+expectType<{out1: number}>(
+	await parallelMerge(() => ({out1: 1}))());
 expectType<{out1: number} & {init: number}>(
 	await parallelMerge((a: {init: number}) => ({out1: 1}))({init: 0}));
 expectType<{out1: number} & {init: number}>(
@@ -99,6 +102,11 @@ expectAssignable<{init: string}>(
 expectAssignable<{init: number}>(
 	await parallelMerge((a: {init: number}) => {})({init: 0}));
 
+expectAssignable<{a: string} & {b: number} & {c: number}>(
+	await parallelMerge(
+		() => ({a: '1', b: '1'}),
+		() => ({b: 1, c: 1})
+	)());
 expectAssignable<{a: number} & {b: string} & {c: string} & {d: string} & {e: number} & {f: number}>(
 	await parallelMerge(
 		(a: {a: number, b: number, c: number}) => ({b: '1', d: 1, e: 1}),
@@ -120,6 +128,11 @@ expectAssignable<MainExit & {a: number} | OkExit>(await pipeP(
 	),
 	exit.pipe
 )(2));
+
+expectError<{out1: number}>(
+	await parallelMerge(() => ({out1: 1}))({init: 0}));
+expectError<{out1: number} & {init: number}>(
+	await parallelMerge((a: {init: number}) => ({out1: 1}))());
 
 // skipErrors
 expectType<Promise<number>>(skipErrors((a: number) => 1)(2));

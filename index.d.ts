@@ -75,6 +75,19 @@ type OmitThen<T1, T2 = object, T3 = object, T4 = object, T5 = object, T6 = objec
  * Returns first argument, shallow-merged with
  * return values of each function.
  */
+export function parallelMerge<R1, R2, R3, R4, R5, R6, R7, R8, R9, R10>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5, f6: () => R6, f7: () => R7, f8: () => R8, f9: () => R9, f10: () => R10):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5, R6, R7, R8, R9, R10>
+		& OmitThen<R2, R3, R4, R5, R6, R7, R8, R9, R10>
+		& OmitThen<R3, R4, R5, R6, R7, R8, R9, R10>
+		& OmitThen<R4, R5, R6, R7, R8, R9, R10>
+		& OmitThen<R5, R6, R7, R8, R9, R10>
+		& OmitThen<R6, R7, R8, R9, R10>
+		& OmitThen<R7, R8, R9, R10>
+		& OmitThen<R8, R9, R10>
+		& OmitThen<R9, R10>
+		& FilterThen<R10>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5, f6: (data: A) => R6, f7: (data: A) => R7, f8: (data: A) => R8, f9: (data: A) => R9, f10: (data: A) => R10):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10>
@@ -89,6 +102,18 @@ export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10>(f1: (d
 		& OmitThen<R9, R10>
 		& FilterThen<R10>
 	>;
+export function parallelMerge<R1, R2, R3, R4, R5, R6, R7, R8, R9>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5, f6: () => R6, f7: () => R7, f8: () => R8, f9: () => R9):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5, R6, R7, R8, R9>
+		& OmitThen<R2, R3, R4, R5, R6, R7, R8, R9>
+		& OmitThen<R3, R4, R5, R6, R7, R8, R9>
+		& OmitThen<R4, R5, R6, R7, R8, R9>
+		& OmitThen<R5, R6, R7, R8, R9>
+		& OmitThen<R6, R7, R8, R9>
+		& OmitThen<R7, R8, R9>
+		& OmitThen<R8, R9>
+		& FilterThen<R9>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8, R9>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5, f6: (data: A) => R6, f7: (data: A) => R7, f8: (data: A) => R8, f9: (data: A) => R9):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5, R6, R7, R8, R9>
@@ -102,6 +127,17 @@ export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8, R9>(f1: (data: 
 		& OmitThen<R8, R9>
 		& FilterThen<R9>
 	>;
+export function parallelMerge<R1, R2, R3, R4, R5, R6, R7, R8>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5, f6: () => R6, f7: () => R7, f8: () => R8):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5, R6, R7, R8>
+		& OmitThen<R2, R3, R4, R5, R6, R7, R8>
+		& OmitThen<R3, R4, R5, R6, R7, R8>
+		& OmitThen<R4, R5, R6, R7, R8>
+		& OmitThen<R5, R6, R7, R8>
+		& OmitThen<R6, R7, R8>
+		& OmitThen<R7, R8>
+		& FilterThen<R8>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5, f6: (data: A) => R6, f7: (data: A) => R7, f8: (data: A) => R8):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5, R6, R7, R8>
@@ -114,6 +150,16 @@ export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7, R8>(f1: (data: A) =
 		& OmitThen<R7, R8>
 		& FilterThen<R8>
 	>;
+export function parallelMerge<R1, R2, R3, R4, R5, R6, R7>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5, f6: () => R6, f7: () => R7):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5, R6, R7>
+		& OmitThen<R2, R3, R4, R5, R6, R7>
+		& OmitThen<R3, R4, R5, R6, R7>
+		& OmitThen<R4, R5, R6, R7>
+		& OmitThen<R5, R6, R7>
+		& OmitThen<R6, R7>
+		& FilterThen<R7>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5, f6: (data: A) => R6, f7: (data: A) => R7):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5, R6, R7>
@@ -125,6 +171,15 @@ export function parallelMerge<A, R1, R2, R3, R4, R5, R6, R7>(f1: (data: A) => R1
 		& OmitThen<R6, R7>
 		& FilterThen<R7>
 	>;
+export function parallelMerge<R1, R2, R3, R4, R5, R6>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5, f6: () => R6):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5, R6>
+		& OmitThen<R2, R3, R4, R5, R6>
+		& OmitThen<R3, R4, R5, R6>
+		& OmitThen<R4, R5, R6>
+		& OmitThen<R5, R6>
+		& FilterThen<R6>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5, R6>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5, f6: (data: A) => R6):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5, R6>
@@ -135,6 +190,14 @@ export function parallelMerge<A, R1, R2, R3, R4, R5, R6>(f1: (data: A) => R1, f2
 		& OmitThen<R5, R6>
 		& FilterThen<R6>
 	>;
+export function parallelMerge<R1, R2, R3, R4, R5>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4, f5: () => R5):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4, R5>
+		& OmitThen<R2, R3, R4, R5>
+		& OmitThen<R3, R4, R5>
+		& OmitThen<R4, R5>
+		& FilterThen<R5>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4, R5>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4, f5: (data: A) => R5):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4, R5>
@@ -144,6 +207,13 @@ export function parallelMerge<A, R1, R2, R3, R4, R5>(f1: (data: A) => R1, f2: (d
 		& OmitThen<R4, R5>
 		& FilterThen<R5>
 	>;
+export function parallelMerge<R1, R2, R3, R4>(f1: () => R1, f2: () => R2, f3: () => R3, f4: () => R4):
+	() => Promise<
+		OmitThen<R1, R2, R3, R4>
+		& OmitThen<R2, R3, R4>
+		& OmitThen<R3, R4>
+		& FilterThen<R4>
+	>;
 export function parallelMerge<A, R1, R2, R3, R4>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3, f4: (data: A) => R4):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3, R4>
@@ -152,6 +222,12 @@ export function parallelMerge<A, R1, R2, R3, R4>(f1: (data: A) => R1, f2: (data:
 		& OmitThen<R3, R4>
 		& FilterThen<R4>
 	>;
+export function parallelMerge<R1, R2, R3>(f1: () => R1, f2: () => R2, f3: () => R3):
+	() => Promise<
+		OmitThen<R1, R2, R3>
+		& OmitThen<R2, R3>
+		& FilterThen<R3>
+	>;
 export function parallelMerge<A, R1, R2, R3>(f1: (data: A) => R1, f2: (data: A) => R2, f3: (data: A) => R3):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2, R3>
@@ -159,11 +235,20 @@ export function parallelMerge<A, R1, R2, R3>(f1: (data: A) => R1, f2: (data: A) 
 		& OmitThen<R2, R3>
 		& FilterThen<R3>
 	>;
+export function parallelMerge<R1, R2>(f1: () => R1, f2: () => R2):
+	() => Promise<
+		OmitThen<R1, R2>
+		& FilterThen<R2>
+	>;
 export function parallelMerge<A, R1, R2>(f1: (data: A) => R1, f2: (data: A) => R2):
 	(data: A) => Promise<
 		OmitThen<A, R1, R2>
 		& OmitThen<R1, R2>
 		& FilterThen<R2>
+	>;
+export function parallelMerge<R1>(f1: () => R1):
+	() => Promise<
+		FilterThen<R1>
 	>;
 export function parallelMerge<A, R1>(f1: (data: A) => R1):
 	(data: A) => Promise<
