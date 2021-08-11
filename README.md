@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/yoomoney-tech/pure-process.svg?branch=master)](https://travis-ci.com/github/yoomoney-tech/pure-process/branches)
-[![Codecov](https://codecov.io/gh/yoomoney-tech/pure-process/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney-tech/pure-process)
+[![Build Status](https://travis-ci.com/yoomoney/pure-process.svg?branch=master)](https://travis-ci.com/github/yoomoney/pure-process/branches)
+[![Codecov](https://codecov.io/gh/yoomoney/pure-process/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney/pure-process)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/@yoomoney/pure-process)](https://www.npmjs.com/package/@yoomoney/pure-process)
 ## Pure Process

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Primitives for business logic structuring",
   "license": "MIT",
-  "repository": "yoomoney-tech/pure-process",
+  "repository": "yoomoney/pure-process",
   "author": "Vitaly Kuznetsov",
   "main": "lib/index.js",
   "scripts": {
