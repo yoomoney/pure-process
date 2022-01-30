@@ -1,6 +1,6 @@
 {
   "name": "@yoomoney/pure-process",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Primitives for business logic structuring",
   "license": "MIT",
   "repository": "yoomoney/pure-process",
